@@ -6,7 +6,7 @@
   "author": "xavier.chevalier@ynov.com",
   "license": "MIT",
   "scripts": {
-    "install-dependencies": "./installation/vs_buildtools.exe && ./installation/python-2.7.15.amd64.msi && npm config set python python2.7 && npm config set msvs_version 2017 && npm install -g yarn && yarn && yarn run build",
+    "install-dependencies": "./webpack/installation/vs_buildtools.exe && ./webpack/installation/python-2.7.15.amd64.msi && npm config set python python2.7 && npm config set msvs_version 2017 && npm install -g yarn && yarn && yarn run build",
     "dev": "webpack --env.NODE_ENV=development --mode=\"development\" --progress --hide-modules --watch",
     "dev-server": "webpack-dev-server --env.NODE_ENV=development --mode=\"development\" --progress --hot",
     "build": "webpack --env.NODE_ENV=production --mode=\"production\" --progress --hide-modules"
