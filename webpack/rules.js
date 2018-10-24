@@ -31,37 +31,13 @@ module.exports = (config) => {
             ],
         },
         {
-            test: /\.obj$/,
-            loader: 'file-loader',
-            include: [
-                path.resolve(__dirname, './../assets/js/Models')
-            ]
-        },
-        {
-            test: /\.mtl$/,
-            loader: 'file-loader',
-            include: [
-                path.resolve(__dirname, './../assets/js/Models')
-            ]
-        },
-        {
-            test: /\.dds$/,
+            test: /\.obj|mtl|dds|jpg$/,
             loader: 'file-loader',
             include: [
                 path.resolve(__dirname, './../assets/js/Models')
             ],
             options: {
-                name: '[name].dds'
-            }
-        },
-        {
-            test: /\.jpg$/,
-            loader: 'file-loader',
-            include: [
-                path.resolve(__dirname, './../assets/js/Models')
-            ],
-            options: {
-                name: '[name].jpg'
+                name: '[name].[ext]'
             }
         },
         {
