@@ -31,6 +31,40 @@ module.exports = (config) => {
             ],
         },
         {
+            test: /\.obj$/,
+            loader: 'file-loader',
+            include: [
+                path.resolve(__dirname, './../assets/js/Models')
+            ]
+        },
+        {
+            test: /\.mtl$/,
+            loader: 'file-loader',
+            include: [
+                path.resolve(__dirname, './../assets/js/Models')
+            ]
+        },
+        {
+            test: /\.dds$/,
+            loader: 'file-loader',
+            include: [
+                path.resolve(__dirname, './../assets/js/Models')
+            ],
+            options: {
+                name: '[name].dds'
+            }
+        },
+        {
+            test: /\.jpg$/,
+            loader: 'file-loader',
+            include: [
+                path.resolve(__dirname, './../assets/js/Models')
+            ],
+            options: {
+                name: '[name].jpg'
+            }
+        },
+        {
             test: /\.html$/,
             loader: 'html-loader',
             options: {
@@ -60,7 +94,10 @@ module.exports = (config) => {
         },
         {
             test: /\.(png|jpe?g|gif)$/,
-            loader: 'file-loader?name=img/[name].[ext]?[hash]'
+            loader: 'file-loader?name=img/[name].[ext]?[hash]',
+            exclude: [
+                path.resolve(__dirname, './../assets/js/Models')
+            ]
         }
     ];
 };
