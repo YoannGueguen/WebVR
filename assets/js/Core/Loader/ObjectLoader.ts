@@ -13,6 +13,7 @@ export default class ObjectLoader {
                 textures = require(`@js/Models/${this.directoryPath}/${modelName}.mtl`);
 
             const mtlLoader = new MTLLoader();
+            mtlLoader.setBaseUrl('/models/textures/');
             mtlLoader.load(textures, (materials: MaterialCreator) => {
                 materials.preload();
 

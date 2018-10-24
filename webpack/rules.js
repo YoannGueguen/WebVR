@@ -37,7 +37,7 @@ module.exports = (config) => {
                 path.resolve(__dirname, './../assets/js/Models')
             ],
             options: {
-                name: '[name].[ext]'
+                name: 'models/textures/[name].[ext]'
             }
         },
         {
