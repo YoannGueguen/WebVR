@@ -6,6 +6,7 @@
   "author": "xavier.chevalier@ynov.com",
   "license": "MIT",
   "scripts": {
+    "install": "npm install -g yarn && yarn && yarn run build",
     "dev": "webpack --env.NODE_ENV=development --mode=\"development\" --progress --hide-modules --watch",
     "dev server": "webpack-dev-server --env.NODE_ENV=development --mode=\"development\" --progress --hot",
     "build": "webpack --env.NODE_ENV=production --mode=\"production\" --progress --hide-modules"
