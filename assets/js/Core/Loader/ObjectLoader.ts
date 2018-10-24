@@ -3,8 +3,12 @@ import {MTLLoader, OBJLoader} from "three-obj-mtl-loader";
 import ObjectFileLoader from "@js/Core/Loader/ObjectFileLoader";
 
 export default class ObjectLoader {
+    private onProgressCallback: Function;
+
     constructor(private directoryPath: string) {
         new ObjectFileLoader();
+
+        this.onProgressCallback = xhr => console.info(`${Math.floor(xhr.loaded / xhr.total * 100)}% loaded`);
     }
 
     public load(modelName: string): Promise<Group> {
@@ -25,12 +29,16 @@ export default class ObjectLoader {
                     // Called when resource is loaded
                     resolve,
                     // Called when loading is in progresses
-                    xhr => console.log((xhr.loaded / xhr.total * 100) + '% loaded'),
+                    this.onProgressCallback,
                     // Called when loading has errors
                     reject
                 );
             }, () => {
             }, reject);
         });
+    }
+
+    public onProgress(callback: Function): void {
+        this.onProgressCallback = callback;
     }
 }
