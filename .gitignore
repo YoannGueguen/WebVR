@@ -79,3 +79,4 @@ typings/
 
 # Generated files
 public/app.js
+public/models/
