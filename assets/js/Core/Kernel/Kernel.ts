@@ -5,6 +5,9 @@ export default class Kernel {
         this.loadControllers();
     }
 
+    /**
+     * Instancy all application's controllers
+     */
     private loadControllers(): void {
         const requireContext = require.context(`@js/Controller`, true, /^(.*\.(ts$))[^.]*$/im);
 

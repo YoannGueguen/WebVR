@@ -12,10 +12,16 @@ export default class Application {
         new ApplicationRenderer(this.scene, this.camera);
     }
 
+    /**
+     * Get the principal application's scene
+     */
     get scene(): Scene {
         return this._scene;
     }
 
+    /**
+     * Get the principal application's camera
+     */
     get camera(): PerspectiveCamera {
         return this._camera;
     }

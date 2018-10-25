@@ -30,16 +30,25 @@ export default class ApplicationRenderer {
         this.appendToHtml();
     }
 
+    /**
+     * On window resize, update renderer view
+     */
     private onResize(): void {
         this._camera.aspect = window.innerWidth / window.innerHeight;
         this._camera.updateProjectionMatrix();
         this._renderer.setSize(window.innerWidth, window.innerHeight)
     }
 
+    /**
+     * Append application renderer to HTML
+     */
     private appendToHtml(): void {
         document.getElementById('app').appendChild(this._renderer.domElement);
     }
 
+    /**
+     * Render a frame
+     */
     public render(): void {
         this._orbitControls.update();
 

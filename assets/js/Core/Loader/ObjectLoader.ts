@@ -3,6 +3,7 @@ import {MTLLoader, OBJLoader} from "three-obj-mtl-loader";
 import ObjectFileLoader from "@js/Core/Loader/ObjectFileLoader";
 import ObjectCacheLoader from "@js/Core/Loader/ObjectCacheLoader";
 import ObjectCacheLoaderCollection from "@js/Core/Loader/ObjectCacheLoaderCollection";
+import EnvironmentService from "@js/Service/EnvironmentService";
 
 export default class ObjectLoader {
     private static objectCacheCollection = new ObjectCacheLoaderCollection();
@@ -11,9 +12,17 @@ export default class ObjectLoader {
     constructor(private directoryPath: string) {
         new ObjectFileLoader();
 
-        this.onProgressCallback = xhr => console.info(`${Math.floor(xhr.loaded / xhr.total * 100)}% loaded`);
+        this.onProgressCallback = xhr => {
+            if (EnvironmentService.isDevelopmentEnvironment()) {
+                console.info(`${Math.floor(xhr.loaded / xhr.total * 100)}% loaded`);
+            }
+        }
     }
 
+    /**
+     * Load an 3D object with file name parameter
+     * @param modelName
+     */
     public load(modelName: string): Promise<Group> {
         return new Promise((resolve, reject) => {
             // Search object in cache collection
@@ -53,6 +62,10 @@ export default class ObjectLoader {
         });
     }
 
+    /**
+     * On progress 3D model load callback
+     * @param callback
+     */
     public onProgress(callback: Function): void {
         this.onProgressCallback = callback;
     }

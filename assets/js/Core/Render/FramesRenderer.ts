@@ -5,6 +5,9 @@ export default class FramesRenderer {
         this.frame();
     }
 
+    /**
+     * Recursive frames renderer
+     */
     private frame(): void {
         requestAnimationFrame(() => {
             this.applicationRenderer.render();
