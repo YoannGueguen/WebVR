@@ -1,7 +1,7 @@
 # WebVR
 
 ## Présentation
-Ce dépôt est un fork de proposition d'architecture du projet WebVR.
+Ce dépôt est un fork pour la proposition d'architecture du projet WebVR.
 
 ## Prérequis
 - [NodeJS](https://nodejs.org/en/download/)
@@ -26,7 +26,7 @@ npm run dev
 ```
 
 - Permet de compiler tous les fichiers, de watch ces derniers et d'ouvrir un serveur
- à l'adresse suivante `http://localhost:9000/`.
+ à l'adresse suivante [http://localhost:9000/](http://localhost:9000/).
 La compilation se fait automatiquement lorsqu'un fichier du projet est modifié. De plus,
 la page se rafraichit également automatiquement.
 ```bash

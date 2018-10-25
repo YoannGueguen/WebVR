@@ -40,27 +40,14 @@ export default class ApplicationRenderer {
         document.getElementById('app').appendChild(this._renderer.domElement);
     }
 
-    get renderer(): WebGLRenderer {
-        return this._renderer;
-    }
+    public render(): void {
+        this._orbitControls.update();
 
-    get scene() {
-        return this._scene;
-    }
-
-    get camera() {
-        return this._camera;
-    }
-
-    get renderTarget() {
-        return this._renderTarget;
-    }
-
-    get forceClear() {
-        return this._forceClear;
-    }
-
-    get orbitControls(): OrbitControls {
-        return this._orbitControls;
+        this._renderer.render(
+            this._scene,
+            this._camera,
+            this._renderTarget,
+            this._forceClear,
+        );
     }
 }

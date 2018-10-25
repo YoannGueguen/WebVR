@@ -7,14 +7,7 @@ export default class FramesRenderer {
 
     private frame(): void {
         requestAnimationFrame(() => {
-            this.applicationRenderer.orbitControls.update();
-
-            this.applicationRenderer.renderer.render(
-                this.applicationRenderer.scene,
-                this.applicationRenderer.camera,
-                this.applicationRenderer.renderTarget,
-                this.applicationRenderer.forceClear,
-            );
+            this.applicationRenderer.render();
 
             this.frame();
         });
