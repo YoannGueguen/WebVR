@@ -1,9 +1,9 @@
 import {AmbientLight, PerspectiveCamera, Scene, Vector3} from "three";
-import {MTLLoader, OBJLoader} from "three-obj-mtl-loader";
 import PonteVecchioFactory from "@js/Factory/PonteVecchioFactory";
 
 // noinspection JSUnusedGlobalSymbols
 export default class MainController {
+    // noinspection JSUnusedGlobalSymbols
     constructor(scene: Scene, camera: PerspectiveCamera) {
         camera.position.x = 20;
         camera.position.y = 10;
