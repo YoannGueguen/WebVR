@@ -9,10 +9,8 @@ export default class MainController {
         camera.position.y = 10;
         camera.position.z = 20;
         camera.lookAt(new Vector3(0, 0, 0));
-        scene.add(camera);
 
-        const light = new AmbientLight(0xffffff, 1);
-        scene.add(light);
+        scene.add(new AmbientLight(0xffffff, 1));
 
         PonteVecchioFactory.create().then(object => scene.add(object));
     }

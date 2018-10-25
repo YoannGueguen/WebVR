@@ -17,6 +17,9 @@ export default class ApplicationRenderer {
         this._renderTarget = renderTarget;
         this._forceClear = forceClear;
 
+        // Add camera to scene
+        this._scene.add(this._camera);
+
         this._renderer.shadowMap.enabled = true;
         this._renderer.setClearColor('rgb(120, 120, 120)');
 
