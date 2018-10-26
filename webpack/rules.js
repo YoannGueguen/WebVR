@@ -31,7 +31,7 @@ module.exports = (config) => {
             ],
         },
         {
-            test: /\.obj|mtl|dds|jpg$/,
+            test: /\.obj|mtl|dds|jpg|tga|png|bmp$/,
             loader: 'file-loader',
             include: [
                 path.resolve(__dirname, './../assets/js/Models')

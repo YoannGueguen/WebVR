@@ -1,15 +1,23 @@
-class EnvironmentService {
-    constructor(private environment: string) {
-    }
+import * as env from '@root/env.json';
+import {Singleton} from "@root/node_modules/typescript-ioc";
 
+@Singleton
+export default class EnvironmentService {
     /**
      * Know if environment is 'development'
      */
     public isDevelopmentEnvironment(): boolean {
-        return this.environment === 'development';
+        return env.ENVIRONMENT === 'development';
+    }
+
+    /**
+     * Know if environment is 'production'
+     */
+    public isProductionEnvironment(): boolean {
+        return env.ENVIRONMENT === 'production';
+    }
+
+    public getParameter(name: string): any | null {
+        return env[name] || null;
     }
 }
-
-export default new EnvironmentService(
-    process.env.NODE_ENV
-);

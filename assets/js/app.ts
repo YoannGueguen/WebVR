@@ -1,7 +1,6 @@
 import '@sass/app.scss';
 import Application from "@js/Core/Application/Application";
 import {PerspectiveCamera, Scene} from "three";
-import EnvironmentService from "@js/Service/EnvironmentService";
 import Kernel from "@js/Core/Kernel/Kernel";
 
 const application = new Application(
@@ -16,8 +15,3 @@ const application = new Application(
 
 // Run application's kernel
 new Kernel(application);
-
-if (EnvironmentService.isDevelopmentEnvironment()) {
-    // Export application variable on development mode
-    window['application'] = application;
-}

@@ -4,7 +4,7 @@ export default class ObjectFileLoader {
     constructor() {
         if (!ObjectFileLoader.filesLoaded) {
             // Copy textures files in public path
-            require.context(`@js/Models`, true, /^(.*\.(jpg|dds|png$))[^.]*$/im);
+            require.context(`@js/Models`, true, /^(.*\.(jpg|dds|png|tga|bmp$))[^.]*$/im);
 
             ObjectFileLoader.filesLoaded = true;
         }
