@@ -4,16 +4,19 @@ import ObjectFileLoader from "@js/Core/Loader/ObjectFileLoader";
 import ObjectCacheLoader from "@js/Core/Loader/ObjectCacheLoader";
 import ObjectCacheLoaderCollection from "@js/Core/Loader/ObjectCacheLoaderCollection";
 import EnvironmentService from "@js/Service/EnvironmentService";
+import {Inject} from "@root/node_modules/typescript-ioc";
 
 export default class ObjectLoader {
     private static objectCacheCollection = new ObjectCacheLoaderCollection();
+    @Inject
+    private environmentService: EnvironmentService;
     private onProgressCallback: Function;
 
     constructor(private directoryPath: string) {
         new ObjectFileLoader();
 
         this.onProgressCallback = xhr => {
-            if (EnvironmentService.isDevelopmentEnvironment()) {
+            if (this.environmentService.isDevelopmentEnvironment()) {
                 console.info(`${Math.floor(xhr.loaded / xhr.total * 100)}% loaded`);
             }
         }

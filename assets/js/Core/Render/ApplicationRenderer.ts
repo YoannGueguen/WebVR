@@ -26,7 +26,12 @@ export default class ApplicationRenderer {
         this.onResize();
         window.onresize = this.onResize.bind(this);
 
-        this._orbitControls = new OrbitControls(camera, this._renderer.domElement);
+        this._orbitControls = new OrbitControls(this._camera, this._renderer.domElement);
+        this._orbitControls.enableZoom = true;
+        this._orbitControls.minDistance = 1;
+        this._orbitControls.rotateSpeed = .5;
+        // @ts-ignore
+        this._orbitControls.damping = 0.2;
 
         this.framesRenderer = new FramesRenderer(this);
 

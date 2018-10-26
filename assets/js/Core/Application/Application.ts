@@ -4,12 +4,12 @@ import ApplicationRenderer from "@js/Core/Render/ApplicationRenderer";
 export default class Application {
     private readonly _scene: Scene;
     private readonly _camera: PerspectiveCamera;
+    private readonly _applicationRenderer: ApplicationRenderer;
 
     constructor(scene: Scene, camera: PerspectiveCamera) {
         this._scene = scene;
         this._camera = camera;
-
-        new ApplicationRenderer(this.scene, this.camera);
+        this._applicationRenderer = new ApplicationRenderer(this.scene, this.camera);
     }
 
     /**
@@ -24,5 +24,9 @@ export default class Application {
      */
     get camera(): PerspectiveCamera {
         return this._camera;
+    }
+
+    get applicationRenderer(): ApplicationRenderer {
+        return this._applicationRenderer;
     }
 }
