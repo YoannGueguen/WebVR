@@ -1,0 +1,132 @@
+#
+# mtl file for Ragnaros.obj obj file
+#
+
+newmtl creature_ragnaros_ragnaros.m2_Geoset_000_Lum
+illum 2
+Kd 0.000000 0.000000 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Kd Ragnaros_ragnarosskin.png
+newmtl creature_ragnaros_ragnaros.m2_Geoset_001
+illum 2
+Kd 1.000000 1.000000 1.000000
+Ka 0.250000 0.250000 0.250000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Kd Ragnaros_ragnarosskin.png
+newmtl creature_ragnaros_ragnaros.m2_Geoset_002_Lum
+illum 2
+Kd 0.000000 0.000000 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Kd Ragnaros_ragnaroshammer.png
+newmtl creature_ragnaros_ragnaros.m2_Geoset_003_Lum_Dbl
+illum 2
+Kd 0.000000 0.000000 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Kd Ragnaros_ragnarosskin.png
+newmtl creature_ragnaros_ragnaros.m2_Geoset_004_Lum_Dbl
+illum 2
+Kd 0.000000 0.000000 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Kd Ragnaros_ragnarosskin.png
+newmtl creature_ragnaros_ragnaros.m2_Geoset_005_Lum_Dbl
+illum 2
+Kd 0.000000 0.000000 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Kd Ragnaros_ragnarosskin.png
+newmtl creature_ragnaros_ragnaros.m2_Geoset_006_Lum_Dbl
+illum 2
+Kd 0.000000 0.000000 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Kd Ragnaros_ragnarosskin.png
+newmtl creature_ragnaros_ragnaros.m2_Geoset_007_Lum_Dbl
+illum 2
+Kd 0.000000 0.000000 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Kd Ragnaros_ragnarosskin.png
+newmtl creature_ragnaros_ragnaros.m2_Geoset_008_Lum_Dbl
+illum 2
+Kd 0.000000 0.000000 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Kd Ragnaros_ragnarosskin.png
+newmtl creature_ragnaros_ragnaros.m2_Geoset_009_Lum_Dbl
+illum 2
+Kd 0.000000 0.000000 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Kd Ragnaros_ragnarosskin.png
+newmtl creature_ragnaros_ragnaros.m2_Geoset_010_Lum_Dbl
+illum 2
+Kd 0.000000 0.000000 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Kd Ragnaros_ragnarosskin.png
+newmtl creature_ragnaros_ragnaros.m2_Geoset_011_Lum_Dbl
+illum 2
+Kd 0.000000 0.000000 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Kd Ragnaros_ragnarosskin.png
+newmtl creature_ragnaros_ragnaros.m2_Geoset_012_Lum_Dbl
+illum 2
+Kd 0.000000 0.000000 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Kd Ragnaros_ragnarosskin.png
+newmtl creature_ragnaros_ragnaros.m2_Geoset_013_Lum_Dbl
+illum 2
+Kd 0.000000 0.000000 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Kd Ragnaros_ragnarosskin.png
+newmtl creature_ragnaros_ragnaros.m2_Geoset_014_Lum_Dbl
+illum 2
+Kd 0.000000 0.000000 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Kd Ragnaros_ragnarosskin.png
+newmtl creature_ragnaros_ragnaros.m2_Geoset_015_Lum_Dbl
+illum 2
+Kd 0.000000 0.000000 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Kd Ragnaros_ragnarosskin.png
