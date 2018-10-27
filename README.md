@@ -17,6 +17,8 @@ Voici la liste des logiciels à installer au préalable :
 `.env.dist`.
 - Sur ce projet, nous n'utilisons pas `NPM`, mais bien `Yarn`. Pour les commmandes que vous trouverez
 sur Internet, il est nécessaire de les transformer en commande [`Yarn`](https://yarnpkg.com/lang/en/docs/).
+- Il est nécessaire de relancer le script de compilation (`dev` ou `dev-server`) lors de l'ajout ou de la
+suppression d'un model 3D (`assets/js/Models/`).
 
 ## Installation
 Assurez-vous de respecter les prérequis avant d'entreprendre l'installation.

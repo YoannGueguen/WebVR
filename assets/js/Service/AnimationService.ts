@@ -1,4 +1,4 @@
-import {Singleton} from "@root/node_modules/typescript-ioc";
+import {Singleton} from "typescript-ioc";
 import FramesCallbackCollection from "@js/Collection/FramesCallbackCollection";
 
 @Singleton

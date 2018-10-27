@@ -1,5 +1,5 @@
 import * as env from '@root/env.json';
-import {Singleton} from "@root/node_modules/typescript-ioc";
+import {Singleton} from "typescript-ioc";
 
 @Singleton
 export default class EnvironmentService {

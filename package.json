@@ -26,6 +26,7 @@
     "node-sass": "^4.9.4",
     "raw-loader": "^0.5.1",
     "sass-loader": "^7.1.0",
+    "stats-js": "^1.0.0-alpha1",
     "style-loader": "^0.23.1",
     "three": "^0.97.0",
     "three-obj-mtl-loader": "^1.0.3",
