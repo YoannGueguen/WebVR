@@ -6,7 +6,7 @@ import {Singleton} from "typescript-ioc";
 export default class ObjectFileLoader {
     constructor() {
         // Copy textures files in public path
-        require.context(`@js/Models`, true, /^(.*\.(jpg|dds|png|tga|bmp$))[^.]*$/im);
+        require.context(`@assets/models`, true, /^(.*\.(jpg|dds|png|tga|bmp$))[^.]*$/im);
 
         // Add TGA Loader
         Loader.Handlers.add(/\.tga$/i, new TGALoader());

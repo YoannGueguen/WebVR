@@ -19,8 +19,8 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@root/*": [
-        "*"
+      "@assets/*": [
+        "assets/*"
       ],
       "@js/*": [
         "assets/js/*"

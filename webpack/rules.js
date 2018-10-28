@@ -34,14 +34,14 @@ module.exports = (config) => {
             test: /\.obj$/,
             loader: 'raw-loader',
             include: [
-                path.resolve(__dirname, './../assets/js/Models')
+                path.resolve(__dirname, './../assets/models')
             ]
         },
         {
             test: /\.(mtl|dds|jpg|tga|png|bmp)$/,
             loader: 'file-loader',
             include: [
-                path.resolve(__dirname, './../assets/js/Models')
+                path.resolve(__dirname, './../assets/models')
             ],
             options: {
                 name: 'models/[name].[ext]'
@@ -79,7 +79,7 @@ module.exports = (config) => {
             test: /\.(png|jpe?g|gif)$/,
             loader: 'file-loader?name=img/[name].[ext]?[hash]',
             exclude: [
-                path.resolve(__dirname, './../assets/js/Models')
+                path.resolve(__dirname, './../assets/models')
             ]
         }
     ];

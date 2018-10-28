@@ -1,4 +1,4 @@
-import * as env from '@root/env.json';
+import * as env from '@assets/../env.json';
 import {Singleton} from "typescript-ioc";
 
 @Singleton

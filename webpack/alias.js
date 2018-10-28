@@ -14,7 +14,7 @@ module.exports = (config) => {
         '@sass': path.resolve(__dirname, './../assets/sass/'),
         '@img': path.resolve(__dirname, './../assets/img/'),
         '@js': path.resolve(__dirname, './../assets/js/'),
-        '@root': path.resolve(__dirname, './../'),
+        '@assets': path.resolve(__dirname, './../assets/'),
 
         'mixins': path.resolve(__dirname, './../assets/sass/mixins/_mixins.scss'),
         'variables': path.resolve(__dirname, './../assets/sass/_variables.scss'),
