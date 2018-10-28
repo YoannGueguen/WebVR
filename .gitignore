@@ -57,7 +57,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+env.json
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -78,4 +78,5 @@ typings/
 .idea/
 
 # Generated files
-public/app.js
+public/*
+!public/index.html
