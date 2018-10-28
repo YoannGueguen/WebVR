@@ -3,11 +3,16 @@ import Moon from "@js/Domain/Object/Moon";
 
 export default class MoonFactory {
     static create(): Promise<Moon> {
-        const objectLoader = new ObjectLoader('moon'),
-            promiseLoad = objectLoader.load('Moon 2K');
+        return new Promise((resolve, reject) => {
+            const objectLoader = new ObjectLoader('moon'),
+                promiseLoad = objectLoader.load('Moon 2K');
 
-        promiseLoad.catch(console.error);
-
-        return promiseLoad;
+            promiseLoad
+                .then(object => resolve(new Moon(object)))
+                .catch(error => {
+                    console.error(error);
+                    reject(error);
+                });
+        });
     }
 }

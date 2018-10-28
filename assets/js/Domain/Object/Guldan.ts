@@ -1,5 +1,5 @@
-import {Group} from "three";
+import CustomObject3D from "@js/Domain/Object/CustomObject3D";
 
-export default class Guldan extends Group {
+export default class Guldan extends CustomObject3D {
 
 }

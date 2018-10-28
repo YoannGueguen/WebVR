@@ -3,11 +3,16 @@ import Street from "@js/Domain/Object/Street";
 
 export default class StreetFactory {
     static create(): Promise<Street> {
-        const objectLoader = new ObjectLoader('street-environment'),
-            promiseLoad = objectLoader.load('Street environment_V01');
+        return new Promise((resolve, reject) => {
+            const objectLoader = new ObjectLoader('street-environment'),
+                promiseLoad = objectLoader.load('Street environment_V01');
 
-        promiseLoad.catch(console.error);
-
-        return promiseLoad;
+            promiseLoad
+                .then(object => resolve(new Street(object)))
+                .catch(error => {
+                    console.error(error);
+                    reject(error);
+                });
+        });
     }
 }

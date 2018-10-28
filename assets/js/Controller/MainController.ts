@@ -28,26 +28,30 @@ export default class MainController {
         scene.add(new AmbientLight(0xffffff, 1));
 
         MoonFactory.create().then(moon => {
-            moon.position.set(20, 20, -200);
-            moon.scale.addScalar(30);
-            scene.add(moon);
-            scene.add(new BoxHelper(moon));
+            const moonObject = moon.getObject3D();
+            moonObject.position.set(20, 20, -200);
+            moonObject.scale.addScalar(30);
+            scene.add(moonObject);
+            scene.add(new BoxHelper(moonObject));
 
             this.animationService.addFramesCallback(() => {
-                moon.rotation.y += 0.001;
+                moonObject.rotation.y += 0.001;
             });
         });
 
-        IllidanFactory.create().then(object => {
-            object.scale.addScalar(3);
-            object.position.x = 10;
-            scene.add(object);
+        IllidanFactory.create().then(illidan => {
+            const illidanObject = illidan.getObject3D();
+            illidanObject.scale.addScalar(3);
+            illidanObject.position.x = 10;
+            scene.add(illidanObject);
         });
 
-        GuldanFactory.create().then(object => {
-            object.scale.addScalar(8);
-            object.position.x = -10;
-            scene.add(object);
+        GuldanFactory.create().then(guldan => {
+            const guldanObject = guldan.getObject3D();
+            guldanObject.scale.addScalar(8);
+            guldanObject.position.x = -10;
+
+            scene.add(guldanObject);
         });
     }
 }

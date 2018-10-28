@@ -3,11 +3,16 @@ import Ragnaros from "@js/Domain/Object/Ragnaros";
 
 export default class RagnarosFactory {
     static create(): Promise<Ragnaros> {
-        const objectLoader = new ObjectLoader('Ragnaros'),
-            promiseLoad = objectLoader.load('Ragnaros');
+        return new Promise((resolve, reject) => {
+            const objectLoader = new ObjectLoader('Ragnaros'),
+                promiseLoad = objectLoader.load('Ragnaros');
 
-        promiseLoad.catch(console.error);
-
-        return promiseLoad;
+            promiseLoad
+                .then(object => resolve(new Ragnaros(object)))
+                .catch(error => {
+                    console.error(error);
+                    reject(error);
+                });
+        });
     }
 }

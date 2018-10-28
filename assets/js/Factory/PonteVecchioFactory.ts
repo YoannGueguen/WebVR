@@ -3,11 +3,16 @@ import ObjectLoader from "@js/Core/Loader/ObjectLoader";
 
 export default class PonteVecchioFactory {
     static create(): Promise<PonteVecchio> {
-        const objectLoader = new ObjectLoader('FlorenceBridge'),
-            promiseLoad = objectLoader.load('PonteVecchio');
+        return new Promise((resolve, reject) => {
+            const objectLoader = new ObjectLoader('FlorenceBridge'),
+                promiseLoad = objectLoader.load('PonteVecchio');
 
-        promiseLoad.catch(console.error);
-
-        return promiseLoad;
+            promiseLoad
+                .then(object => resolve(new PonteVecchio(object)))
+                .catch(error => {
+                    console.error(error);
+                    reject(error);
+                });
+        });
     }
 }
