@@ -25,8 +25,4 @@ export default class Application {
     get camera(): PerspectiveCamera {
         return this._camera;
     }
-
-    get applicationRenderer(): ApplicationRenderer {
-        return this._applicationRenderer;
-    }
 }

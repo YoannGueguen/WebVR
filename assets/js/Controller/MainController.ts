@@ -5,6 +5,8 @@ import GUIService from "@js/Service/GUIService";
 import AnimationService from "@js/Service/AnimationService";
 import IllidanFactory from "@js/Factory/IllidanFactory";
 import GuldanFactory from "@js/Factory/GuldanFactory";
+import StreetFactory from "@js/Factory/StreetFactory";
+import RagnarosFactory from "@js/Factory/RagnarosFactory";
 
 // noinspection JSUnusedGlobalSymbols
 export default class MainController {
@@ -52,6 +54,19 @@ export default class MainController {
             guldanObject.position.x = -10;
 
             scene.add(guldanObject);
+        });
+
+        StreetFactory.create().then(street => {
+            const streetObject = street.getObject3D();
+
+            scene.add(streetObject);
+        });
+
+        RagnarosFactory.create().then(ragnaros => {
+            const ragnarosObject = ragnaros.getObject3D();
+            ragnarosObject.position.z = -40;
+
+            scene.add(ragnarosObject);
         });
     }
 }

@@ -1,10 +1,11 @@
-import {Group, MaterialCreator} from "three";
+import {Group, Loader, MaterialCreator} from "three";
 import {MTLLoader, OBJLoader} from "three-obj-mtl-loader";
 import ObjectFileLoader from "@js/Core/Loader/ObjectFileLoader";
 import ObjectCacheLoader from "@js/Core/Loader/ObjectCacheLoader";
 import ObjectCacheLoaderCollection from "@js/Core/Loader/ObjectCacheLoaderCollection";
 import EnvironmentService from "@js/Service/EnvironmentService";
 import {Inject} from "typescript-ioc";
+import TGALoader from "@js/Core/Loader/TGALoader";
 
 export default class ObjectLoader {
     private static objectCacheCollection = new ObjectCacheLoaderCollection();
@@ -14,6 +15,9 @@ export default class ObjectLoader {
 
     constructor(private directoryPath: string) {
         new ObjectFileLoader();
+
+        // Add TGA Loader
+        Loader.Handlers.add(/\.tga$/i, new TGALoader());
 
         this.onProgressCallback = xhr => {
             if (this.environmentService.isDevelopmentEnvironment()) {
