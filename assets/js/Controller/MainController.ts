@@ -40,7 +40,7 @@ export default class MainController {
 
             scene.add(moon);
 
-            this.animationService.addFramesCallback(() => {
+            this.animationService.onUpdate(() => {
                 moon.rotation.y += 0.001;
             });
         });

@@ -5,11 +5,19 @@ import FramesCallbackCollection from "@js/Collection/FramesCallbackCollection";
 export default class AnimationService {
     private framesCallbackCollection: FramesCallbackCollection = new FramesCallbackCollection();
 
-    public getFramesCallbackCollection(): FramesCallbackCollection {
-        return this.framesCallbackCollection;
+    /**
+     * Register a callback called for each frame
+     *
+     * @param callback
+     */
+    public onUpdate(callback: Function): void {
+        this.framesCallbackCollection.push(callback);
     }
 
-    public addFramesCallback(callback: Function): void {
-        this.framesCallbackCollection.push(callback);
+    /**
+     * Run all registered callbacks
+     */
+    public runCallbacks(): void {
+        this.framesCallbackCollection.runCallbacks();
     }
 }

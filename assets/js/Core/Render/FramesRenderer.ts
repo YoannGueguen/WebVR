@@ -21,7 +21,7 @@ export default class FramesRenderer {
     private frame(): void {
         this.statsService.begin();
         requestAnimationFrame(() => {
-            this.animationService.getFramesCallbackCollection().runCallbacks();
+            this.animationService.runCallbacks();
             this.applicationRenderer.render();
 
             this.statsService.end();
