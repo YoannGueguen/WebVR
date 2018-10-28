@@ -30,8 +30,6 @@ export default class MainController {
             guldan.scale.addScalar(8);
             guldan.position.x = -5;
 
-            this.guiService.addPositionsGUI(guldan);
-
             scene.add(guldan);
             scene.add(new BoxHelper(guldan));
         });
