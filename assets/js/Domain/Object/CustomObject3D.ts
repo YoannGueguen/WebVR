@@ -1,13 +1,16 @@
 import {Group, Object3D} from "three";
 import {Inject} from "typescript-ioc";
 import CollectionService from "@js/Service/CollectionService";
+import ObjectLoader from "@js/Core/Loader/ObjectLoader";
 
-export default class CustomObject3D extends Group {
+export default abstract class CustomObject3D extends Group {
     private static readonly defaultObject = new Object3D();
     @Inject
     private collectionService: CollectionService;
 
-    protected create(source: Group): this {
+    protected async create(): Promise<this> {
+        const source = await new ObjectLoader().load(this.constructor.name);
+
         if (CustomObject3D.defaultObject.name === this.name) {
             this.name = source.name;
         }

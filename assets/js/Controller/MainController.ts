@@ -4,6 +4,9 @@ import GUIService from "@js/Service/GUIService";
 import AnimationService from "@js/Service/AnimationService";
 import Guldan from "@js/Domain/Object/Guldan";
 import Moon from "@js/Domain/Object/Moon";
+import Illidan from "@js/Domain/Object/Illidan";
+import Ragnaros from "@js/Domain/Object/Ragnaros";
+import JapanIsland from "@js/Domain/Object/JapanIsland";
 
 // noinspection JSUnusedGlobalSymbols
 export default class MainController {
@@ -44,35 +47,24 @@ export default class MainController {
             });
         });
 
-        // IllidanFactory.create().then(illidan => {
-        //     const illidanObject = illidan.getObject3D();
-        //     illidanObject.scale.addScalar(3);
-        //     illidanObject.position.set(15, -3, 5);
-        //     scene.add(illidanObject);
-        // });
+        Illidan.create().then(illidan => {
+            illidan.scale.addScalar(3);
+            illidan.position.set(15, -3, 5);
 
-        // GuldanFactory.create().then(guldan => {
-        //     const guldanObject = guldan.getObject3D();
-        //     guldanObject.scale.addScalar(8);
-        //     guldanObject.position.x = -5;
-        //
-        //     scene.add(guldanObject);
-        // });
+            scene.add(illidan);
+        });
 
-        // RagnarosFactory.create().then(ragnaros => {
-        //     const ragnarosObject = ragnaros.getObject3D();
-        //     ragnarosObject.position.z = -40;
-        //
-        //     scene.add(ragnarosObject);
-        // });
+        Ragnaros.create().then(ragnaros => {
+            ragnaros.position.z = -40;
 
-        // IleJapFactory.create().then(ileJapLandcape => {
-        //     const ileJapObject = ileJapLandcape.getObject3D();
-        //
-        //     ileJapObject.scale.setScalar(10);
-        //     ileJapObject.position.set(0, -90, -120);
-        //
-        //     scene.add(ileJapObject);
-        // });
+            scene.add(ragnaros);
+        });
+
+        JapanIsland.create().then(ileJap => {
+            ileJap.scale.setScalar(10);
+            ileJap.position.set(0, -90, -120);
+
+            scene.add(ileJap);
+        });
     }
 }
