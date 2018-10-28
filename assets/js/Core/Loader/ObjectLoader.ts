@@ -35,7 +35,7 @@ export default class ObjectLoader {
                 return resolve(Object.assign({}, objectCache.object));
             }
 
-            const objectContent = require(`@js/Models/${modelName}/${modelName}.obj`) as string,
+            const objectContent = require(`@assets/models/${modelName}/${modelName}.obj`) as string,
                 match = /mtllib (.+)\.mtl/gi.exec(objectContent),
                 MTLFileName = match[1];
 
@@ -43,7 +43,7 @@ export default class ObjectLoader {
                 throw 'MTL file not found in .obj';
             }
 
-            const textures = require(`@js/Models/${modelName}/${MTLFileName}.mtl`),
+            const textures = require(`@assets/models/${modelName}/${MTLFileName}.mtl`),
                 mtlLoader = new MTLLoader();
 
             mtlLoader.setTexturePath('/models/');
