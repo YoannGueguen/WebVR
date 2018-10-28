@@ -1,8 +1,9 @@
-import {AmbientLight, PerspectiveCamera, PointLight, PointLightHelper, Scene} from "three";
+import {AmbientLight, BoxHelper, PerspectiveCamera, PointLight, PointLightHelper, Scene} from "three";
 import {Inject} from "typescript-ioc";
 import GUIService from "@js/Service/GUIService";
 import AnimationService from "@js/Service/AnimationService";
 import Guldan from "@js/Domain/Object/Guldan";
+import Moon from "@js/Domain/Object/Moon";
 
 // noinspection JSUnusedGlobalSymbols
 export default class MainController {
@@ -26,29 +27,30 @@ export default class MainController {
             guldan.scale.addScalar(8);
             guldan.position.x = -5;
 
+            this.guiService.addPositionsGUI(guldan);
+
             scene.add(guldan);
-            debugger
+            scene.add(new BoxHelper(guldan));
         });
 
-        // MoonFactory.create().then(moon => {
-        //     const moonObject = moon.getObject3D();
-        //     moonObject.position.set(160, 40, -600);
-        //     moonObject.scale.addScalar(50);
-        //     scene.add(moonObject);
-        //     scene.add(new BoxHelper(moonObject));
-        //
-        //     this.animationService.addFramesCallback(() => {
-        //         moonObject.rotation.y += 0.001;
-        //     });
-        // });
-        //
+        Moon.create().then(moon => {
+            moon.position.set(160, 40, -600);
+            moon.scale.addScalar(50);
+
+            scene.add(moon);
+
+            this.animationService.addFramesCallback(() => {
+                moon.rotation.y += 0.001;
+            });
+        });
+
         // IllidanFactory.create().then(illidan => {
         //     const illidanObject = illidan.getObject3D();
         //     illidanObject.scale.addScalar(3);
         //     illidanObject.position.set(15, -3, 5);
         //     scene.add(illidanObject);
         // });
-        //
+
         // GuldanFactory.create().then(guldan => {
         //     const guldanObject = guldan.getObject3D();
         //     guldanObject.scale.addScalar(8);
@@ -56,14 +58,14 @@ export default class MainController {
         //
         //     scene.add(guldanObject);
         // });
-        //
+
         // RagnarosFactory.create().then(ragnaros => {
         //     const ragnarosObject = ragnaros.getObject3D();
         //     ragnarosObject.position.z = -40;
         //
         //     scene.add(ragnarosObject);
         // });
-        //
+
         // IleJapFactory.create().then(ileJapLandcape => {
         //     const ileJapObject = ileJapLandcape.getObject3D();
         //

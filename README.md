@@ -73,9 +73,8 @@ Le projet est composé de plusieurs dossiers regroupant les sources du projets.
         - `Factory/`: Contient toutes les factories de l'application. Ce sont des classes
         permettant l'instanciation d'autres classes.
         - `Models/`: Comporte tous les objets 3D et textures du projet.
-        Chaque objet et ses textures sont regroupés dans un dossier (ex: `Personnage1/Personnage1.obj` et `Personnage1/Personnage1.mtl`).
-        **Attention: les fichiers `.obj` et `.mtl` doivent avoir exactement le même
-        nom pour être chargés.**
+        Chaque objets et leurs textures sont regroupés dans des dossiers (ex: `Models/Personnage1/Personnage1.obj`).
+        **Attention: le nom du dossier doit être identique au nom du fichier `.obj` pour être chargé.**
     - `sass/`: Contient tous les fichiers de style de l'application.
 - `node_modules/`: Est un dossier généré par Yarn/NPM **a ne surtout pas modifier**. Il contient toutes
 les dépendances JavaScript du projet.

@@ -1,7 +1,11 @@
 import {Group, Object3D} from "three";
+import {Inject} from "typescript-ioc";
+import CollectionService from "@js/Service/CollectionService";
 
 export default class CustomObject3D extends Group {
     private static readonly defaultObject = new Object3D();
+    @Inject
+    private collectionService: CollectionService;
 
     protected create(source: Group): this {
         if (CustomObject3D.defaultObject.name === this.name) {
@@ -68,7 +72,7 @@ export default class CustomObject3D extends Group {
             this.userData = JSON.parse(JSON.stringify(source.userData));
         }
 
-        if (CustomObject3D.defaultObject.children === this.children) {
+        if (this.collectionService.areEquals(CustomObject3D.defaultObject.children, this.children)) {
             source.children.forEach(children => this.add(children.clone()));
         }
 

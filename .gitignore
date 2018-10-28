@@ -78,5 +78,5 @@ env.json
 .idea/
 
 # Generated files
-public/app.js
-public/models/
+public/*
+!public/index.html

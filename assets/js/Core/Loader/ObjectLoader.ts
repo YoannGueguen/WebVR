@@ -1,7 +1,6 @@
 import {Group, MaterialCreator} from "three";
 import {MTLLoader, OBJLoader} from "three-obj-mtl-loader";
 import ObjectFileLoader from "@js/Core/Loader/ObjectFileLoader";
-import ObjectCacheLoader from "@js/Core/Loader/ObjectCacheLoader";
 import ObjectCacheLoaderCollection from "@js/Core/Loader/ObjectCacheLoaderCollection";
 import EnvironmentService from "@js/Service/EnvironmentService";
 import {Inject} from "typescript-ioc";
@@ -36,35 +35,43 @@ export default class ObjectLoader {
                 return resolve(Object.assign({}, objectCache.object));
             }
 
-            const object = require(`@js/Models/${modelName}/${modelName}.obj`),
-                textures = require(`@js/Models/${modelName}/${modelName}.mtl`);
+            const objectContent = require(`@js/Models/${modelName}/${modelName}.obj`) as string,
+                match = /mtllib (.+)\.mtl/gi.exec(objectContent),
+                MTLFileName = match[1];
 
-            // TODO: Auto import MTL file from .obj
+            if (!MTLFileName) {
+                throw 'MTL file not found in .obj';
+            }
 
-            const mtlLoader = new MTLLoader();
-            mtlLoader.setTexturePath('/models/textures/');
+            const textures = require(`@js/Models/${modelName}/${MTLFileName}.mtl`),
+                mtlLoader = new MTLLoader();
+
+            mtlLoader.setTexturePath('/models/');
             mtlLoader.load(textures, (materials: MaterialCreator) => {
                 materials.preload();
 
                 const objLoader = new OBJLoader();
                 objLoader.setMaterials(materials);
-                objLoader.load(
-                    // Resource URL
-                    object,
-                    // Called when resource is loaded
-                    (group) => {
-                        // Add object to cache system
-                        ObjectLoader.objectCacheCollection.add(new ObjectCacheLoader(modelName, group));
-                        resolve(group);
-                    },
-                    // Called when loading is in progresses
-                    this.onProgressCallback,
-                    // Called when loading has errors
-                    error => {
-                        console.error(error);
-                        reject(error);
-                    }
-                );
+                const object = objLoader.parse(objectContent);
+                resolve(object);
+                // debugger
+                // objLoader.load(
+                //     // Resource URL
+                //     object,
+                //     // Called when resource is loaded
+                //     (group) => {
+                //         // Add object to cache system
+                //         ObjectLoader.objectCacheCollection.add(new ObjectCacheLoader(modelName, group));
+                //         resolve(group);
+                //     },
+                //     // Called when loading is in progresses
+                //     this.onProgressCallback,
+                //     // Called when loading has errors
+                //     error => {
+                //         console.error(error);
+                //         reject(error);
+                //     }
+                // );
             }, () => {
             }, error => {
                 console.error(error);
