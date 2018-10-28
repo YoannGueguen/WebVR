@@ -4,9 +4,9 @@ export default class ObjectCacheLoaderCollection {
     constructor(private objectCache: ObjectCacheLoader[] = []) {
     }
 
-    public findObject(directoryPath: string, modelName: string): ObjectCacheLoader|null {
+    public findObject(modelName: string): ObjectCacheLoader | null {
         return this.objectCache.find(objectCache => {
-            if(objectCache.objectDirectoryPath === directoryPath && objectCache.objectName === modelName) {
+            if (objectCache.objectName === modelName) {
                 return true;
             }
         }) || null;

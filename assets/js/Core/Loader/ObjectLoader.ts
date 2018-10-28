@@ -1,11 +1,10 @@
-import {Group, Loader, MaterialCreator} from "three";
+import {Group, MaterialCreator} from "three";
 import {MTLLoader, OBJLoader} from "three-obj-mtl-loader";
 import ObjectFileLoader from "@js/Core/Loader/ObjectFileLoader";
 import ObjectCacheLoader from "@js/Core/Loader/ObjectCacheLoader";
 import ObjectCacheLoaderCollection from "@js/Core/Loader/ObjectCacheLoaderCollection";
 import EnvironmentService from "@js/Service/EnvironmentService";
 import {Inject} from "typescript-ioc";
-import TGALoader from "@js/Core/Loader/TGALoader";
 
 export default class ObjectLoader {
     private static objectCacheCollection = new ObjectCacheLoaderCollection();
@@ -13,11 +12,8 @@ export default class ObjectLoader {
     private environmentService: EnvironmentService;
     private onProgressCallback: Function;
 
-    constructor(private directoryPath: string) {
+    constructor() {
         new ObjectFileLoader();
-
-        // Add TGA Loader
-        Loader.Handlers.add(/\.tga$/i, new TGALoader());
 
         this.onProgressCallback = xhr => {
             if (this.environmentService.isDevelopmentEnvironment()) {
@@ -33,15 +29,17 @@ export default class ObjectLoader {
     public load(modelName: string): Promise<Group> {
         return new Promise((resolve, reject) => {
             // Search object in cache collection
-            const objectCache = ObjectLoader.objectCacheCollection.findObject(this.directoryPath, modelName);
+            const objectCache = ObjectLoader.objectCacheCollection.findObject(modelName);
             // If object exist in cache collection
             if (objectCache !== null) {
                 // Return a clone of this object
                 return resolve(Object.assign({}, objectCache.object));
             }
 
-            const object = require(`@js/Models/${this.directoryPath}/${modelName}.obj`),
-                textures = require(`@js/Models/${this.directoryPath}/${modelName}.mtl`);
+            const object = require(`@js/Models/${modelName}/${modelName}.obj`),
+                textures = require(`@js/Models/${modelName}/${modelName}.mtl`);
+
+            // TODO: Auto import MTL file from .obj
 
             const mtlLoader = new MTLLoader();
             mtlLoader.setTexturePath('/models/textures/');
@@ -56,16 +54,22 @@ export default class ObjectLoader {
                     // Called when resource is loaded
                     (group) => {
                         // Add object to cache system
-                        ObjectLoader.objectCacheCollection.add(new ObjectCacheLoader(this.directoryPath, modelName, group));
+                        ObjectLoader.objectCacheCollection.add(new ObjectCacheLoader(modelName, group));
                         resolve(group);
                     },
                     // Called when loading is in progresses
                     this.onProgressCallback,
                     // Called when loading has errors
-                    reject
+                    error => {
+                        console.error(error);
+                        reject(error);
+                    }
                 );
             }, () => {
-            }, reject);
+            }, error => {
+                console.error(error);
+                reject(error);
+            });
         });
     }
 

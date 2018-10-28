@@ -1,11 +1,7 @@
 import {Group} from "three";
 
 export default class ObjectCacheLoader {
-    constructor(private _objectDirectoryPath: string, private _objectName: string, private _object: Group) {
-    }
-
-    get objectDirectoryPath(): string {
-        return this._objectDirectoryPath;
+    constructor(private _objectName: string, private _object: Group) {
     }
 
     get objectName(): string {

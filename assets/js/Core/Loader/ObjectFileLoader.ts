@@ -1,12 +1,14 @@
+import {Loader} from "three";
+import TGALoader from "@js/Core/Loader/TGALoader";
+import {Singleton} from "typescript-ioc";
+
+@Singleton
 export default class ObjectFileLoader {
-    private static filesLoaded: boolean = false;
-
     constructor() {
-        if (!ObjectFileLoader.filesLoaded) {
-            // Copy textures files in public path
-            require.context(`@js/Models`, true, /^(.*\.(jpg|dds|png|tga|bmp$))[^.]*$/im);
+        // Copy textures files in public path
+        require.context(`@js/Models`, true, /^(.*\.(jpg|dds|png|tga|bmp$))[^.]*$/im);
 
-            ObjectFileLoader.filesLoaded = true;
-        }
+        // Add TGA Loader
+        Loader.Handlers.add(/\.tga$/i, new TGALoader());
     }
 }
