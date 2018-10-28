@@ -17,8 +17,6 @@ export default class GUIService {
 
     public addPositionsGUI(object: Object3D): void {
         this.GUI.name = object.name;
-        this.GUI.add(object.position, 'x');
-        this.GUI.add(object.position, 'y');
-        this.GUI.add(object.position, 'z');
+        ['x', 'y', 'z'].forEach(axis => this.GUI.add(object.position, axis));
     }
 }

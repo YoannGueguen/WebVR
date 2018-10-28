@@ -1,12 +1,12 @@
-import {AmbientLight, BoxHelper, PerspectiveCamera, PointLight, PointLightHelper, Scene, Vector3} from "three";
+import {AmbientLight, BoxHelper, PerspectiveCamera, PointLight, PointLightHelper, Scene} from "three";
 import MoonFactory from "@js/Factory/MoonFactory";
 import {Inject} from "typescript-ioc";
 import GUIService from "@js/Service/GUIService";
 import AnimationService from "@js/Service/AnimationService";
 import IllidanFactory from "@js/Factory/IllidanFactory";
 import GuldanFactory from "@js/Factory/GuldanFactory";
-import StreetFactory from "@js/Factory/StreetFactory";
 import RagnarosFactory from "@js/Factory/RagnarosFactory";
+import IleJapFactory from "@js/Factory/IleJapFactory";
 
 // noinspection JSUnusedGlobalSymbols
 export default class MainController {
@@ -17,8 +17,7 @@ export default class MainController {
 
     // noinspection JSUnusedGlobalSymbols
     constructor(scene: Scene, camera: PerspectiveCamera) {
-        camera.position.set(0, 20, 100);
-        camera.lookAt(new Vector3(50, 40, 50));
+        camera.position.set(40, 20, 100);
 
         const pointLight = new PointLight();
         pointLight.castShadow = true;
@@ -31,8 +30,8 @@ export default class MainController {
 
         MoonFactory.create().then(moon => {
             const moonObject = moon.getObject3D();
-            moonObject.position.set(20, 20, -200);
-            moonObject.scale.addScalar(30);
+            moonObject.position.set(160, 40, -600);
+            moonObject.scale.addScalar(50);
             scene.add(moonObject);
             scene.add(new BoxHelper(moonObject));
 
@@ -44,22 +43,16 @@ export default class MainController {
         IllidanFactory.create().then(illidan => {
             const illidanObject = illidan.getObject3D();
             illidanObject.scale.addScalar(3);
-            illidanObject.position.x = 10;
+            illidanObject.position.set(15, -3, 5);
             scene.add(illidanObject);
         });
 
         GuldanFactory.create().then(guldan => {
             const guldanObject = guldan.getObject3D();
             guldanObject.scale.addScalar(8);
-            guldanObject.position.x = -10;
+            guldanObject.position.x = -5;
 
             scene.add(guldanObject);
-        });
-
-        StreetFactory.create().then(street => {
-            const streetObject = street.getObject3D();
-
-            scene.add(streetObject);
         });
 
         RagnarosFactory.create().then(ragnaros => {
@@ -67,6 +60,15 @@ export default class MainController {
             ragnarosObject.position.z = -40;
 
             scene.add(ragnarosObject);
+        });
+
+        IleJapFactory.create().then(ileJapLandcape => {
+            const ileJapObject = ileJapLandcape.getObject3D();
+
+            ileJapObject.scale.setScalar(10);
+            ileJapObject.position.set(0, -90, -120);
+
+            scene.add(ileJapObject);
         });
     }
 }
