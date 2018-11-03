@@ -1,37 +1,40 @@
-import {PerspectiveCamera, RenderTarget, Scene, WebGLRenderer} from "three";
+import {Camera, PerspectiveCamera, RenderTarget, Scene, WebGLRenderer} from "three";
 import FramesRenderer from "@js/Core/Render/FramesRenderer";
 import {OrbitControls} from "three-orbitcontrols-ts";
+import CameraType from "@js/Core/Camera/CameraType";
 
 export default class ApplicationRenderer {
-    private _renderer = new WebGLRenderer();
-    private readonly _scene: Scene;
-    private readonly _camera: PerspectiveCamera;
-    private readonly _renderTarget: RenderTarget;
-    private readonly _forceClear: boolean;
-    private readonly _orbitControls: OrbitControls;
-    private framesRenderer: FramesRenderer;
+    private readonly renderer = new WebGLRenderer();
+    private readonly scene: Scene;
+    private readonly camera: Camera;
+    private readonly renderTarget: RenderTarget;
+    private readonly forceClear: boolean;
+    private readonly orbitControls: OrbitControls;
+    private readonly cameraType: CameraType;
+    private readonly framesRenderer: FramesRenderer;
 
-    constructor(scene: Scene, camera: PerspectiveCamera, renderTarget?: RenderTarget, forceClear?: boolean) {
-        this._scene = scene;
-        this._camera = camera;
-        this._renderTarget = renderTarget;
-        this._forceClear = forceClear;
+    constructor(scene: Scene, camera: Camera, renderTarget?: RenderTarget, forceClear?: boolean) {
+        this.scene = scene;
+        this.camera = camera;
+        this.renderTarget = renderTarget;
+        this.forceClear = forceClear;
+        this.cameraType = new CameraType(this.camera);
 
         // Add camera to scene
-        this._scene.add(this._camera);
+        this.scene.add(this.camera);
 
-        this._renderer.shadowMap.enabled = true;
-        this._renderer.setClearColor('rgb(120, 120, 120)');
+        this.renderer.shadowMap.enabled = true;
+        this.renderer.setClearColor('rgb(120, 120, 120)');
 
         this.onResize();
         window.onresize = this.onResize.bind(this);
 
-        this._orbitControls = new OrbitControls(this._camera, this._renderer.domElement);
-        this._orbitControls.enableZoom = true;
-        this._orbitControls.minDistance = 1;
-        this._orbitControls.rotateSpeed = .5;
+        this.orbitControls = new OrbitControls(this.camera, this.renderer.domElement);
+        this.orbitControls.enableZoom = true;
+        this.orbitControls.minDistance = 1;
+        this.orbitControls.rotateSpeed = .5;
         // @ts-ignore
-        this._orbitControls.damping = 0.2;
+        this.orbitControls.damping = 0.2;
 
         this.framesRenderer = new FramesRenderer(this);
 
@@ -42,29 +45,33 @@ export default class ApplicationRenderer {
      * On window resize, update renderer view
      */
     private onResize(): void {
-        this._camera.aspect = window.innerWidth / window.innerHeight;
-        this._camera.updateProjectionMatrix();
-        this._renderer.setSize(window.innerWidth, window.innerHeight)
+        if (this.cameraType.isPerspectiveCamera()) {
+            const camera = this.camera as PerspectiveCamera;
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+        }
+
+        this.renderer.setSize(window.innerWidth, window.innerHeight)
     }
 
     /**
      * Append application renderer to HTML
      */
     private appendToHtml(): void {
-        document.getElementById('app').appendChild(this._renderer.domElement);
+        document.getElementById('app').appendChild(this.renderer.domElement);
     }
 
     /**
      * Render a frame
      */
     public render(): void {
-        this._orbitControls.update();
+        this.orbitControls.update();
 
-        this._renderer.render(
-            this._scene,
-            this._camera,
-            this._renderTarget,
-            this._forceClear,
+        this.renderer.render(
+            this.scene,
+            this.camera,
+            this.renderTarget,
+            this.forceClear,
         );
     }
 }
