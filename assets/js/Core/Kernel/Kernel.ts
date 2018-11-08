@@ -1,4 +1,5 @@
 import Application from "@js/Core/Application/Application";
+import Controller from "@js/Core/Kernel/Controller";
 
 export default class Kernel {
     constructor(private application: Application) {
@@ -13,8 +14,9 @@ export default class Kernel {
 
         requireContext.keys().forEach(controllerPath => {
             const controller = requireContext(controllerPath).default;
+            const controllerInstance = new controller() as Controller;
 
-            new controller(
+            controllerInstance.run(
                 this.application.scene,
                 this.application.camera
             );
