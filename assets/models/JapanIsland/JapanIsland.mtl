@@ -1,0 +1,52 @@
+# File produced by Open Asset Import Library (http://www.assimp.sf.net)
+# (assimp v3.1.187496374)
+
+newmtl Eau
+Kd 0.31976 0.49424 0.4732
+Ka 0 0 0
+Ke 0 0 0
+d 1
+illum 1
+
+newmtl surfaceShader1
+Kd 0.0005 0.0005 0.0005
+Ka 0 0 0
+Ke 0 0 0
+d 1
+illum 1
+
+newmtl Colo_strats
+Kd 0.18944 0.29176 0.34504
+Ka 0 0 0
+Ke 0 0 0
+d 1
+illum 1
+
+newmtl COLO_ILE
+Kd 0.36072 0.20696 0.198
+Ka 0 0 0
+Ke 0 0 0
+d 1
+illum 1
+
+newmtl Colo_Temple
+Kd 0.1636 0.18752 0.2196
+Ka 0 0 0
+Ke 0 0 0
+d 1
+illum 1
+
+newmtl Vegetation
+Kd 0.26664 0.18816 0.1964
+Ka 0 0 0
+Ke 0 0 0
+d 1
+illum 1
+
+newmtl Colo_Orgues
+Kd 0.16608 0.18784 0.23528
+Ka 0 0 0
+Ke 0 0 0
+d 1
+illum 1
+

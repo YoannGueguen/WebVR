@@ -1,0 +1,10 @@
+@import "reset";
+
+@import "atom/body";
+
+#app {
+    &, canvas {
+        width: 100vw;
+        height: 100vh;
+    }
+}

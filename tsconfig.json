@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "strict": false,
+    "module": "es2015",
+    "lib": ["es6", "dom"],
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true,
+    "rootDir": "./",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./assets/js/Core/Types"
+    ],
+    "types": [
+      "webpack-env",
+      "node"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@assets/*": [
+        "assets/*"
+      ],
+      "@js/*": [
+        "assets/js/*"
+      ],
+      "@components/*": [
+        "assets/js/components/*"
+      ],
+      "@modules/*": [
+        "assets/js/modules/*"
+      ],
+      "@img/*": [
+        "assets/img/*"
+      ],
+      "@fonts/*": [
+        "assets/fonts/*"
+      ],
+      "@sass/*": [
+        "assets/sass/*"
+      ]
+    }
+  }
+}
