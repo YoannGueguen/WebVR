@@ -1,21 +1,22 @@
-import {AmbientLight, BoxHelper, PerspectiveCamera, PointLight, PointLightHelper, Scene} from "three";
+import {AmbientLight, BoxHelper, Camera, PointLight, PointLightHelper, Scene} from "three";
 import {Inject} from "typescript-ioc";
 import GUIService from "@js/Service/GUIService";
 import AnimationService from "@js/Service/AnimationService";
-import Guldan from "@js/Domain/Object/Guldan";
-import Moon from "@js/Domain/Object/Moon";
-import Illidan from "@js/Domain/Object/Illidan";
-import Ragnaros from "@js/Domain/Object/Ragnaros";
-import JapanIsland from "@js/Domain/Object/JapanIsland";
+import Guldan from "@js/Model/Guldan";
+import Moon from "@js/Model/Moon";
+import Illidan from "@js/Model/Illidan";
+import Ragnaros from "@js/Model/Ragnaros";
+import JapanIsland from "@js/Model/JapanIsland";
+import Controller from "@js/Core/Kernel/Controller";
 
 // noinspection JSUnusedGlobalSymbols
-export default class MainController {
+export default class MainController implements Controller {
     @Inject
     private guiService: GUIService;
     @Inject
     private animationService: AnimationService;
 
-    constructor(scene: Scene, camera: PerspectiveCamera) {
+    public async run(scene: Scene, camera: Camera) {
         camera.position.set(40, 20, 100);
 
         const pointLight = new PointLight();
@@ -26,45 +27,38 @@ export default class MainController {
         scene.add(new PointLightHelper(pointLight, 2));
         scene.add(new AmbientLight(0xffffff, 1));
 
-        Guldan.create().then(guldan => {
-            guldan.scale.addScalar(8);
-            guldan.position.x = -5;
+        const guldan = await Guldan.create();
+        guldan.scale.addScalar(8);
+        guldan.position.x = -5;
 
-            this.guiService.addPositionsGUI(guldan);
+        scene.add(guldan);
+        scene.add(new BoxHelper(guldan));
 
-            scene.add(guldan);
-            scene.add(new BoxHelper(guldan));
+        const moon = await Moon.create();
+        moon.position.set(160, 40, -600);
+        moon.scale.addScalar(50);
+
+        scene.add(moon);
+
+        this.animationService.onUpdate(() => {
+            moon.rotation.y += 0.001;
         });
 
-        Moon.create().then(moon => {
-            moon.position.set(160, 40, -600);
-            moon.scale.addScalar(50);
+        const illidan = await Illidan.create();
+        illidan.scale.addScalar(3);
+        illidan.position.set(15, -3, 5);
 
-            scene.add(moon);
+        scene.add(illidan);
 
-            this.animationService.addFramesCallback(() => {
-                moon.rotation.y += 0.001;
-            });
-        });
+        const ragnaros = await Ragnaros.create();
+        ragnaros.position.z = -40;
 
-        Illidan.create().then(illidan => {
-            illidan.scale.addScalar(3);
-            illidan.position.set(15, -3, 5);
+        scene.add(ragnaros);
 
-            scene.add(illidan);
-        });
+        const japanIsland = await JapanIsland.create();
+        japanIsland.scale.setScalar(10);
+        japanIsland.position.set(0, -90, -120);
 
-        Ragnaros.create().then(ragnaros => {
-            ragnaros.position.z = -40;
-
-            scene.add(ragnaros);
-        });
-
-        JapanIsland.create().then(ileJap => {
-            ileJap.scale.setScalar(10);
-            ileJap.position.set(0, -90, -120);
-
-            scene.add(ileJap);
-        });
+        scene.add(japanIsland);
     }
 }

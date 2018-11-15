@@ -1,12 +1,12 @@
-import {PerspectiveCamera, Scene} from "three";
+import {Camera, Scene} from "three";
 import ApplicationRenderer from "@js/Core/Render/ApplicationRenderer";
 
 export default class Application {
     private readonly _scene: Scene;
-    private readonly _camera: PerspectiveCamera;
+    private readonly _camera: Camera;
     private readonly _applicationRenderer: ApplicationRenderer;
 
-    constructor(scene: Scene, camera: PerspectiveCamera) {
+    constructor(scene: Scene, camera: Camera) {
         this._scene = scene;
         this._camera = camera;
         this._applicationRenderer = new ApplicationRenderer(this.scene, this.camera);
@@ -22,7 +22,7 @@ export default class Application {
     /**
      * Get the principal application's camera
      */
-    get camera(): PerspectiveCamera {
+    get camera(): Camera {
         return this._camera;
     }
 }

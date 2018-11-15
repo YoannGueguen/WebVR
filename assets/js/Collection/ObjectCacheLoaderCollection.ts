@@ -1,10 +1,8 @@
 import ObjectCacheLoader from "@js/Core/Loader/ObjectCacheLoader";
 
-export default class ObjectCacheLoaderCollection {
-    private objectCache: ObjectCacheLoader[] = [];
-
+export default class ObjectCacheLoaderCollection extends Array {
     public findObject(modelName: string): ObjectCacheLoader | null {
-        return this.objectCache.find(objectCache => {
+        return this.find((objectCache: ObjectCacheLoader) => {
             if (objectCache.objectName === modelName) {
                 return true;
             }
@@ -12,6 +10,6 @@ export default class ObjectCacheLoaderCollection {
     }
 
     public add(objectCache: ObjectCacheLoader) {
-        this.objectCache.push(objectCache);
+        this.push(objectCache);
     }
 }
