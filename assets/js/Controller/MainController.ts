@@ -2,11 +2,11 @@ import {AmbientLight, BoxHelper, Camera, PointLight, PointLightHelper, Scene} fr
 import {Inject} from "typescript-ioc";
 import GUIService from "@js/Service/GUIService";
 import AnimationService from "@js/Service/AnimationService";
-import Guldan from "@js/Domain/Object/Guldan";
-import Moon from "@js/Domain/Object/Moon";
-import Illidan from "@js/Domain/Object/Illidan";
-import Ragnaros from "@js/Domain/Object/Ragnaros";
-import JapanIsland from "@js/Domain/Object/JapanIsland";
+import Guldan from "@js/Model/Guldan";
+import Moon from "@js/Model/Moon";
+import Illidan from "@js/Model/Illidan";
+import Ragnaros from "@js/Model/Ragnaros";
+import JapanIsland from "@js/Model/JapanIsland";
 import Controller from "@js/Core/Kernel/Controller";
 
 // noinspection JSUnusedGlobalSymbols

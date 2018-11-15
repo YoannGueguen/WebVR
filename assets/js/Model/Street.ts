@@ -1,4 +1,4 @@
-import CustomObject3D from "@js/Domain/Object/CustomObject3D";
+import CustomObject3D from "./CustomObject3D";
 
 export default class Street extends CustomObject3D {
     public castShadow: boolean = true;
