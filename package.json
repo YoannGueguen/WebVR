@@ -29,12 +29,8 @@
     "stats-js": "^1.0.0-alpha1",
     "style-loader": "^0.23.1",
     "three": "^0.97.0",
-<<<<<<< Updated upstream
     "three-obj-mtl-loader": "^1.0.3",
     "three-orbitcontrols-ts": "^0.1.2",
-=======
-    "three-orbitcontrols": "^2.96.3",
->>>>>>> Stashed changes
     "ts-loader": "^5.2.2",
     "typescript": "^3.1.3",
     "typescript-ioc": "^1.2.4",

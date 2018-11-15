@@ -78,13 +78,5 @@ env.json
 .idea/
 
 # Generated files
-<<<<<<< Updated upstream
 public/*
 !public/index.html
-=======
-public/app.js
-
-package\.json
-
-yarn\.lock
->>>>>>> Stashed changes
