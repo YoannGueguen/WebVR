@@ -18,7 +18,8 @@ export default class Kernel {
 
             controllerInstance.run(
                 this.application.scene,
-                this.application.camera
+                this.application.camera,
+                this.application.renderer
             );
         });
     }

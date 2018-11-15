@@ -4977,6 +4977,11 @@ tar@^4:
     safe-buffer "^5.1.2"
     yallist "^3.0.2"
 
+three-dragcontrols@^0.88.2:
+  version "0.88.2"
+  resolved "https://registry.yarnpkg.com/three-dragcontrols/-/three-dragcontrols-0.88.2.tgz#e4b292657b8afffd00e573401da777dfd5dd5cd5"
+  integrity sha512-Qqhbo7+K5TAeqlYlUiI0EBp14uI9nbgoLANas3p4v4kz3h5HmOlComV9UhLI2x3BtdCdcHSuiyDL7sTrtP772w==
+
 three-obj-mtl-loader@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/three-obj-mtl-loader/-/three-obj-mtl-loader-1.0.3.tgz#2901efd5b77cce29b61733c63f196432ee653667"
@@ -4988,6 +4993,11 @@ three-orbitcontrols-ts@^0.1.2:
   integrity sha1-IECVWQQCKuGcLpxS/9/0MWhlir0=
   dependencies:
     three "^0.83.0"
+
+three-trackballcontrols@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/three-trackballcontrols/-/three-trackballcontrols-0.0.7.tgz#42cae1f6856d5f889eaae3a0e2fca9d214793e91"
+  integrity sha512-vWs5XkBnhFb5TkqiEHcvZf50FcOVlXTYL4OT4ydeFr0r7j5H6HYf6ODYnYr7todUECxNf/rbh8zSQKFb0NW83w==
 
 three@^0.83.0, three@^0.97.0:
   version "0.97.0"

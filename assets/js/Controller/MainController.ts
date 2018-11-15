@@ -1,4 +1,4 @@
-import {AmbientLight, BoxHelper, Camera, PointLight, PointLightHelper, Scene} from "three";
+import {AmbientLight, BoxHelper, Camera, PointLight, PointLightHelper, Renderer, Scene} from "three";
 import {Inject} from "typescript-ioc";
 import GUIService from "@js/Service/GUIService";
 import AnimationService from "@js/Service/AnimationService";
@@ -16,7 +16,7 @@ export default class MainController implements Controller {
     @Inject
     private animationService: AnimationService;
 
-    public async run(scene: Scene, camera: Camera) {
+    public async run(scene: Scene, camera: Camera, renderer: Renderer) {
         camera.position.set(40, 20, 100);
 
         const pointLight = new PointLight();
