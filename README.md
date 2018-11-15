@@ -1,6 +1,6 @@
 # WebVR
 ## Présentation
-Ce dépôt est un fork pour la proposition d'architecture du projet WebVR.
+Ce dépôt est le dépôt officiel du projet WebVR - Ynov Campus 2018.
 
 ## Prérequis
 ### Softwares
