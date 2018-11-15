@@ -21,5 +21,8 @@ export default class MainController implements Controller {
         scene.add(pointLight);
         scene.add(new PointLightHelper(pointLight, 2));
         scene.add(new AmbientLight(0xffffff, 1));
+
+
+
     }
 }
