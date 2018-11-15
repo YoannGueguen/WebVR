@@ -67,9 +67,7 @@ Le projet est composé de plusieurs dossiers regroupant les sources du projets.
         - `Controller/`: Contient les controlleurs de l'application.
         - `Core/`: Comporte toutes les classes nécessaires au fonctionnement de base de l'application
         tels que les loaders d'objets, les fichiers de déclarations...etc.
-        - `Domain/`: Regroupe les classes correspondant au corps de métier tels que les
-        objets (ex: `Room` pour une pièce...).
-            - `Object/`: Rassemble toutes les classes d'object 3D. **Attention: Chaque classe doit avoir le même
+        - `Model/`: Rassemble toutes les classes d'object 3D. **Attention: Chaque classe doit avoir le même
             nom que le fichier `.obj` pour que le système de chargement d'object 3D fonctionne.** (ex: la classe
             `Personnage1` fera référence à l'objet `Personnage1.obj`).
         - `Factory/`: Contient toutes les factories de l'application. Ce sont des classes
