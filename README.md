@@ -1,7 +1,13 @@
+<<<<<<< Updated upstream
 # WebVR
+=======
+﻿# WebVR
+
+>>>>>>> Stashed changes
 ## Présentation
 Ce dépôt est un fork pour la proposition d'architecture du projet WebVR.
 
+<<<<<<< Updated upstream
 ## Prérequis
 ### Softwares
 Voici la liste des logiciels à installer au préalable :
@@ -19,16 +25,29 @@ Voici la liste des logiciels à installer au préalable :
 sur Internet, il est nécessaire de les transformer en commande [`Yarn`](https://yarnpkg.com/lang/en/docs/).
 - Il est nécessaire de relancer le script de compilation (`dev` ou `dev-server`) lors de l'ajout ou de la
 suppression d'un model 3D (`assets/js/Models/`).
+=======
+##
+ Prérequis
+- NodeJS
+>>>>>>> Stashed changes
 
-## Installation
-Assurez-vous de respecter les prérequis avant d'entreprendre l'installation.
+## Installation 
 
+<<<<<<< Updated upstream
 Pour installer le projet, il suffit de taper la commande suivante
 et de suivre les différentes étapes des installateurs.
+=======
+Assurez-vous de respecter les prérequis avant d'entreprendre l'installation.
+
+
+Pour installer le projet, il suffit de taper la commande suivante 
+et de suivre les différentes étapes des installateurs :
+>>>>>>> Stashed changes
 ```bash
 npm run install-dependencies
 ```
 
+<<<<<<< Updated upstream
 Assurez-vous de posséder le fichier `env.json` à la racine du projet. S'il n'existe pas,
 il suffit d'exécuter la commande suivante.
 ```bash
@@ -39,16 +58,34 @@ cp env.dist.json env.json
 _Il existe plusieurs commandes pour lancer la compilation du projet._
 
 - La commande suivante permet de compiler tous les fichiers et de watch ces derniers :
+=======
+## 
+Commandes
+_Il existe plusieurs commandes pour lancer la compilation du projet._
+
+- Permet de compiler tous les fichiers et de watch ces derniers :
+
+>>>>>>> Stashed changes
 lorsqu'un fichier est modifié, le script se chargera de relancer la
 compilation automatiquement.
 ```bash
 yarn run dev
 ```
 
+<<<<<<< Updated upstream
 - La commande suivante permet de compiler tous les fichiers, de watch ces derniers et d'ouvrir un serveur
  à l'adresse suivante [http://localhost:9000/](http://localhost:9000/).
 La compilation se fait automatiquement lorsqu'un fichier du projet est modifié. De plus,
 la page se rafraichit également automatiquement.
+=======
+
+- Permet de compiler tous les fichiers, de watch ces derniers et d'ouvrir un serveur
+ à l'adresse suivante `http://localhost:9000/`.
+
+La compilation se fait automatiquement lorsqu'un fichier du projet est modifié. De plus,
+la page se raffraichit également automatiquement.
+
+>>>>>>> Stashed changes
 ```bash
 yarn run dev-server
 ```
