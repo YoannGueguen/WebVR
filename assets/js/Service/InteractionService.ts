@@ -1,9 +1,12 @@
 import {Inject, Singleton} from "typescript-ioc";
-import {DragControls} from "three";
+import DragControls from "three-dragcontrols";
 import AnimationService from "@js/Service/AnimationService";
+import GUIService from "@js/Service/GUIService";
 
 @Singleton
 export default class InteractionService {
+    @Inject
+    private guiService: GUIService;
     @Inject
     private animationService: AnimationService;
 
