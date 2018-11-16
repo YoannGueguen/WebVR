@@ -1,5 +1,7 @@
 import {AmbientLight, Camera, PointLight, PointLightHelper, Scene} from "three";
 import {Inject} from "typescript-ioc";
+
+
 import GUIService from "@js/Service/GUIService";
 import AnimationService from "@js/Service/AnimationService";
 import Controller from "@js/Core/Kernel/Controller";
@@ -8,6 +10,7 @@ import Controller from "@js/Core/Kernel/Controller";
 export default class MainController implements Controller {
     @Inject
     private guiService: GUIService;
+
     @Inject
     private animationService: AnimationService;
 
