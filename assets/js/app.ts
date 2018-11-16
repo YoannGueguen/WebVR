@@ -9,7 +9,7 @@ const application = new Application(
         45,
         window.innerWidth / window.innerHeight,
         1,
-        1000
+        80000
     )
 );
 
