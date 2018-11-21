@@ -55,7 +55,6 @@ export default class MainController implements Controller {
         const character = new Character();
         character.mesh.position.set(0, 0, -400);
         scene.add(character.mesh);
-        // character.mesh.add(new AxesHelper(200));
 
         this.guiService.addPositionsGUI(character.mesh);
 

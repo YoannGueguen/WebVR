@@ -63,7 +63,7 @@ export default class ObjectLoader {
                 const object = objLoader.parse(objectContent);
 
                 // Add object to cache system
-                ObjectLoader.objectCacheCollection.add(new ObjectCacheLoader(modelName, object));
+                ObjectLoader.objectCacheCollection.push(new ObjectCacheLoader(modelName, object));
                 resolve(object);
             }, this.onProgressCallback, error => {
                 console.error(error);
