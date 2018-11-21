@@ -3,10 +3,12 @@ import Collection from "@js/Collection/Collection";
 
 export default class ObjectCacheLoaderCollection extends Collection<ObjectCacheLoader> {
     public findObject(modelName: string): ObjectCacheLoader | null {
-        return this.find((objectCache: ObjectCacheLoader) => {
+        const objectCacheLoader = this.find((objectCache: ObjectCacheLoader) => {
             if (objectCache.objectName === modelName) {
                 return true;
             }
-        }) || null;
+        });
+
+        return objectCacheLoader || null;
     }
 }
