@@ -23,7 +23,6 @@ export default class FramesRenderer {
         requestAnimationFrame(() => {
             this.animationService.runCallbacks();
             this.applicationRenderer.render();
-
             this.statsService.end();
             this.frame();
         });

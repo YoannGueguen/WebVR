@@ -12,6 +12,7 @@ export default class ApplicationRenderer {
     private readonly orbitControls: OrbitControls;
     private readonly cameraType: CameraType;
     private readonly framesRenderer: FramesRenderer;
+    private readonly DOMElementId: string = 'app';
 
     constructor(scene: Scene, camera: Camera, renderTarget?: RenderTarget, forceClear?: boolean) {
         this.scene = scene;
@@ -58,7 +59,7 @@ export default class ApplicationRenderer {
      * Append application renderer to HTML
      */
     private appendToHtml(): void {
-        document.getElementById('app').appendChild(this.renderer.domElement);
+        document.getElementById(this.DOMElementId).appendChild(this.renderer.domElement);
     }
 
     /**

@@ -1,12 +1,9 @@
 import {Group, Object3D} from "three";
-import {Inject} from "typescript-ioc";
-import CollectionService from "@js/Service/CollectionService";
 import ObjectLoader from "@js/Core/Loader/ObjectLoader";
+import Collection from "@js/Collection/Collection";
 
 export default abstract class Object3DModel extends Group {
     private static readonly defaultObject = new Object3D();
-    @Inject
-    private collectionService: CollectionService;
 
     protected async create(): Promise<this> {
         const source = await new ObjectLoader().load(this.constructor.name);
@@ -75,7 +72,7 @@ export default abstract class Object3DModel extends Group {
             this.userData = JSON.parse(JSON.stringify(source.userData));
         }
 
-        if (this.collectionService.areEquals(Object3DModel.defaultObject.children, this.children)) {
+        if (new Collection(Object3DModel.defaultObject.children).areEquals(this.children)) {
             source.children.forEach(children => this.add(children.clone()));
         }
 

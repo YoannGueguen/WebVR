@@ -8,9 +8,9 @@ import IntersectionCollection from "@js/Collection/IntersectionCollection";
 
 @Singleton
 export default class CollisionService {
-    private obstacles: ObstacleCollection = new ObstacleCollection();
     @Inject
     private directionService: DirectionService;
+    private obstacles: ObstacleCollection = new ObstacleCollection();
 
     /**
      * Add the object as obstacle

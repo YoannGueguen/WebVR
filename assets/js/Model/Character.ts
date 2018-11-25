@@ -1,4 +1,4 @@
-import {BoxGeometry, Clock, Mesh, MeshPhongMaterial, Vector3} from "three";
+import {BoxGeometry, Clock, MeshPhongMaterial, Vector3} from "three";
 import MeshModel from "@js/Model/MeshModel";
 
 export default class Character extends MeshModel {
@@ -11,12 +11,12 @@ export default class Character extends MeshModel {
     private clock: Clock = new Clock(true);
 
     constructor() {
-        super();
-        this._geometry = new BoxGeometry(150, 200, 150);
-        this._material = new MeshPhongMaterial({
-            color: 0xffff00
-        });
-        this._mesh = new Mesh(this.geometry, this.material);
+        super(
+            new BoxGeometry(150, 200, 150),
+            new MeshPhongMaterial({
+                color: 0xffff00
+            })
+        );
 
         // TODO: Remove this
         this.move();
