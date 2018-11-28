@@ -1,6 +1,6 @@
 # WebVR
 ## Présentation
-Ce dépôt est un fork pour la proposition d'architecture du projet WebVR.
+Dépôt du projet WebVR.
 
 ## Prérequis
 ### Softwares
