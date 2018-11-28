@@ -1,16 +1,9 @@
-import {
-    Camera, ImageLoader, Mesh, MeshLambertMaterial, MTLLoader, OBJLoader,
-    Renderer,
-    Scene, SphereGeometry, Texture
-} from "three";
+import {Camera, Mesh, MeshLambertMaterial, Renderer, Scene, SphereGeometry} from "three";
 import {Inject} from "typescript-ioc";
 import GUIService from "@js/Service/GUIService";
 import TrackballControls from "three-trackballcontrols";
 import InteractionService from "@js/Service/InteractionService";
 import Controller from "@js/Core/Kernel/Controller"
-import Illidan from "@js/Model/Illidan";
-import Ragnaros from "@js/Model/Ragnaros";
-import Guldan from "@js/Model/Guldan";
 import AnimationService from "@js/Service/AnimationService";
 
 // noinspection JSUnusedGlobalSymbols
@@ -26,17 +19,9 @@ export default class InteractController implements Controller {
         let controls;
         let objects = [];
 
-        let guldan = await Guldan.create();
-        guldan.scale.addScalar(8);
-        guldan.position.x = -5;
-        guldan.castShadow =true;
-        guldan.receiveShadow = true;
-        scene.add(guldan);
-
-        const geometry = new SphereGeometry( 40, 40, 40 );
-
+        const geometry = new SphereGeometry(40, 40, 40);
         for (let i = 0; i < 100; i++) {
-            const object = new Mesh( geometry, new MeshLambertMaterial( { color: Math.random() * 0xffffff } ) );
+            const object = new Mesh(geometry, new MeshLambertMaterial({color: Math.random() * 0xffffff}));
 
             object.position.x = Math.random() * 1000 - 500;
             object.position.y = Math.random() * 600 - 300;
@@ -45,9 +30,8 @@ export default class InteractController implements Controller {
             object.castShadow = true;
             object.receiveShadow = true;
 
-            scene.add( object );
-
-            objects.push( object );
+            scene.add(object);
+            objects.push(object);
         }
 
         controls = new TrackballControls(camera);
@@ -59,9 +43,6 @@ export default class InteractController implements Controller {
         controls.staticMoving = true;
         controls.dynamicDampingFactor = 0.3;
 
-        this.interactionService.dragObject3D(guldan, camera, renderer, controls);
-
         this.interactionService.dragObject(objects, camera, renderer, controls);
     }
-
 }

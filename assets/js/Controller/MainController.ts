@@ -1,11 +1,18 @@
-import {AmbientLight, BoxGeometry, Camera,GridHelper,
+import {
+    AmbientLight,
+    BoxGeometry,
+    Camera,
+    GridHelper,
     Mesh,
-    MeshPhongMaterial, PointLight, PointLightHelper,Renderer, Scene} from "three";
+    MeshPhongMaterial,
+    PointLight,
+    PointLightHelper,
+    Renderer,
+    Scene
+} from "three";
 import {Inject} from "typescript-ioc";
 import GUIService from "@js/Service/GUIService";
 import AnimationService from "@js/Service/AnimationService";
-import Moon from "@js/Model/Moon";
-import JapanIsland from "@js/Model/JapanIsland";
 import Controller from "@js/Core/Kernel/Controller";
 import MesureService from "@js/Service/MesureService";
 import CollisionService from "@js/Service/CollisionService";
@@ -56,21 +63,5 @@ export default class MainController implements Controller {
         this.animationService.onUpdate(() => {
             this.collisionService.update(character);
         });
-
-        const moon = await Moon.create();
-        moon.position.set(160, 40, -600);
-        moon.scale.addScalar(50);
-
-        scene.add(moon);
-
-        this.animationService.onUpdate(() => {
-            moon.rotation.y += 0.001;
-        });
-
-        const japanIsland = await JapanIsland.create();
-        japanIsland.scale.setScalar(10);
-        japanIsland.position.set(0, -90, -120);
-
-        scene.add(japanIsland);
     }
 }
