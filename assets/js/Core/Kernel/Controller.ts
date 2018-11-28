@@ -1,5 +1,5 @@
-import {Camera, Scene} from "three";
+import {Camera, Renderer, Scene} from "three";
 
 export default interface Controller {
-    run(scene: Scene, camera: Camera): void;
+    run(scene: Scene, camera: Camera, renderer: Renderer): void;
 }

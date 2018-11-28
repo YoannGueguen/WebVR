@@ -1,6 +1,6 @@
-import {Camera, PerspectiveCamera, RenderTarget, Scene, WebGLRenderer} from "three";
+import {Camera, PerspectiveCamera, Renderer, RenderTarget, Scene, WebGLRenderer} from "three";
 import FramesRenderer from "@js/Core/Render/FramesRenderer";
-import {OrbitControls} from "three-orbitcontrols-ts";
+//import {OrbitControls} from "three-orbitcontrols-ts";
 import CameraType from "@js/Core/Camera/CameraType";
 
 export default class ApplicationRenderer {
@@ -9,7 +9,7 @@ export default class ApplicationRenderer {
     private readonly camera: Camera;
     private readonly renderTarget: RenderTarget;
     private readonly forceClear: boolean;
-    private readonly orbitControls: OrbitControls;
+    //private readonly orbitControls: OrbitControls;
     private readonly cameraType: CameraType;
     private readonly framesRenderer: FramesRenderer;
     private readonly DOMElementId: string = 'app';
@@ -30,12 +30,12 @@ export default class ApplicationRenderer {
         this.onResize();
         window.onresize = this.onResize.bind(this);
 
-        this.orbitControls = new OrbitControls(this.camera, this.renderer.domElement);
+/*        this.orbitControls = new OrbitControls(this.camera, this.renderer.domElement);
         this.orbitControls.enableZoom = true;
         this.orbitControls.minDistance = 1;
-        this.orbitControls.rotateSpeed = .5;
+        this.orbitControls.rotateSpeed = .5;*/
         // @ts-ignore
-        this.orbitControls.damping = 0.2;
+        //this.orbitControls.damping = 0.2;
 
         this.framesRenderer = new FramesRenderer(this);
 
@@ -66,7 +66,7 @@ export default class ApplicationRenderer {
      * Render a frame
      */
     public render(): void {
-        this.orbitControls.update();
+        //this.orbitControls.update();
 
         this.renderer.render(
             this.scene,
@@ -74,5 +74,9 @@ export default class ApplicationRenderer {
             this.renderTarget,
             this.forceClear,
         );
+    }
+
+    public getRenderer(): Renderer {
+        return this.renderer;
     }
 }

@@ -1,4 +1,4 @@
-import {Camera, Scene} from "three";
+import {Camera, Renderer, Scene} from "three";
 import ApplicationRenderer from "@js/Core/Render/ApplicationRenderer";
 
 export default class Application {
@@ -24,5 +24,9 @@ export default class Application {
      */
     get camera(): Camera {
         return this._camera;
+    }
+
+    get renderer(): Renderer {
+        return this._applicationRenderer.getRenderer();
     }
 }
