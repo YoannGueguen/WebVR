@@ -1,0 +1,8 @@
+newmtl CageNeon_Mat
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd CageNeon_CageNeon1_BaseColor.png
+map_Ka BoucheAeration_BoucheAeration1_AO.png
+Ni 0.00
