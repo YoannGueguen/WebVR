@@ -1,4 +1,6 @@
-export default class FramesCallbackCollection extends Array {
+import Collection from "@js/Collection/Collection";
+
+export default class FramesCallbackCollection extends Collection<Function> {
     /**
      * Run all registered callbacks
      */

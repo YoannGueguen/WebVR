@@ -5,6 +5,12 @@ export default abstract class MeshModel {
     protected _material: Material;
     protected _mesh: Mesh;
 
+    protected constructor(geometry: Geometry, material: Material, meshType: typeof Mesh = Mesh) {
+        this._geometry = geometry;
+        this._material = material;
+        this._mesh = new meshType(this.geometry, this.material);
+    }
+
     get geometry(): Geometry {
         return this._geometry;
     }
