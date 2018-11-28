@@ -2,14 +2,14 @@ import {Group, MaterialCreator} from "three";
 import {MTLLoader, OBJLoader} from "three-obj-mtl-loader";
 import ObjectFileLoader from "@js/Core/Loader/ObjectFileLoader";
 import ObjectCacheLoaderCollection from "@js/Collection/ObjectCacheLoaderCollection";
-import EnvironmentService from "@js/Service/EnvironmentService";
+import ConfigurationService from "@js/Service/ConfigurationService";
 import {Inject} from "typescript-ioc";
 import ObjectCacheLoader from "@js/Core/Loader/ObjectCacheLoader";
 
 export default class ObjectLoader {
     private static objectCacheCollection = new ObjectCacheLoaderCollection();
     @Inject
-    private environmentService: EnvironmentService;
+    private environmentService: ConfigurationService;
     private onProgressCallback: Function;
 
     constructor() {

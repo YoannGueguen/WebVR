@@ -56,6 +56,10 @@ module.exports = (config) => {
             }
         },
         {
+            test: /\.ya?ml$/,
+            loader: 'yml-loader'
+        },
+        {
             test: /\.tsx?$/,
             ...loaders.typeScriptLoader
         },

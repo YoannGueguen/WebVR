@@ -40,6 +40,9 @@
       ],
       "@sass/*": [
         "assets/sass/*"
+      ],
+      "@config/*": [
+        "config/*"
       ]
     }
   }

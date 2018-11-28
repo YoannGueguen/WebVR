@@ -80,3 +80,5 @@ env.json
 # Generated files
 public/*
 !public/index.html
+config/parameters.yml
+/vendor/

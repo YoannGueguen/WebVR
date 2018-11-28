@@ -1,9 +1,4 @@
 const configuration = {};
-const environment = require('./env');
-
-if(!environment.ENVIRONMENT) {
-    throw `The .env file incorrectly configured or doesn't exist. Please copy .env.dist file to .env file.`;
-}
 
 require('./webpack/entry')(configuration);
 require('./webpack/output')(configuration);
