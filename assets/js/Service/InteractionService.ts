@@ -10,8 +10,34 @@ export default class InteractionService {
     @Inject
     private animationService: AnimationService;
 
-    public dragObject(objects, camera, renderer, controls){
+    public dragObject( objects, camera, renderer, controls){
         let dragControls = new DragControls(objects, camera, renderer.domElement);
+        dragControls.addEventListener('dragstart', () => {
+            controls.enabled = false;
+        });
+        dragControls.addEventListener('dragend', () => {
+            controls.enabled = true;
+        });
+
+        this.animationService.onUpdate(() => {
+            controls.update();
+        });
+    }
+    public dragObject3D(group, camera, renderer, controls){
+        let dragControls = new DragControls(group.children, camera, renderer.domElement);
+        dragControls.addEventListener('dragstart', () => {
+            controls.enabled = false;
+        });
+        dragControls.addEventListener('dragend', () => {
+            controls.enabled = true;
+        });
+
+        this.animationService.onUpdate(() => {
+            controls.update();
+        });
+    }
+    public dragGroup(group, camera, renderer, controls){
+        let dragControls = new DragControls(group.children, camera, renderer.domElement);
         dragControls.addEventListener('dragstart', () => {
             controls.enabled = false;
         });
